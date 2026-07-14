@@ -22,4 +22,10 @@ resource "aws_instance" "lab_ec2" {
     Environment = each.value.environment
   }
 
+  lifecycle {
+    ignore_changes = [
+      ami
+    ]
+  }
+
 }

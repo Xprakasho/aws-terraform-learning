@@ -1,0 +1,3 @@
+aws_region        = "us-east-1"
+aws_profile       = "your-aws-profile"
+state_bucket_name = "your-unique-terraform-state-bucket"
