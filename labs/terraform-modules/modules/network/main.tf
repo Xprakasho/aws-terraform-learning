@@ -3,9 +3,12 @@ resource "aws_vpc" "main" {
 
   cidr_block = var.vpc_cidr
 
-  tags = {
+  tags = merge(
+  var.common_tags,
+  {
     Name = "Terraform-Module-VPC"
   }
+)
 
 }
 
@@ -19,9 +22,12 @@ resource "aws_subnet" "public" {
 
   map_public_ip_on_launch = true
 
-  tags = {
+  tags = merge(
+  var.common_tags,
+  {
     Name = "Terraform-Module-Public-Subnet"
   }
+)
 
 }
 
@@ -29,9 +35,12 @@ resource "aws_internet_gateway" "igw" {
 
   vpc_id = aws_vpc.main.id
 
-  tags = {
+  tags = merge(
+  var.common_tags,
+  {
     Name = "Terraform-Module-IGW"
   }
+)
 
 }
 
@@ -44,9 +53,12 @@ resource "aws_route_table" "public" {
     gateway_id = aws_internet_gateway.igw.id
   }
 
-  tags = {
+  tags = merge(
+  var.common_tags,
+  {
     Name = "Terraform-Module-Public-RT"
   }
+)
 
 }
 

@@ -16,13 +16,22 @@ output "route_table_id" {
 }
 
 output "instance_id" {
-  value = module.compute.instance_id
+  value = {
+    for k, v in module.compute :
+    k => v.instance_id
+  }
 }
 
 output "public_ip" {
-  value = module.compute.public_ip
+  value = {
+    for k, v in module.compute :
+    k => v.public_ip
+  }
 }
 
 output "private_ip" {
-  value = module.compute.private_ip
+  value = {
+    for k, v in module.compute :
+    k => v.private_ip
+  }
 }

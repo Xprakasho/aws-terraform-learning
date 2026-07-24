@@ -1,0 +1,23 @@
+variable "vpc_id" {
+
+  description = "VPC ID"
+
+  type = string
+
+}
+
+variable "security_group_name" {
+
+  description = "Security Group Name"
+
+  type = string
+
+}
+
+variable "common_tags" {
+
+  description = "Common Tags"
+
+  type = map(string)
+
+}

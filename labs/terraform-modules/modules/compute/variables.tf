@@ -18,3 +18,19 @@ variable "instance_name" {
   description = "EC2 Name"
   type        = string
 }
+
+variable "common_tags" {
+
+  description = "Common tags"
+
+  type = map(string)
+
+}
+
+variable "security_group_id" {
+
+  description = "Security Group ID"
+
+  type = string
+
+}
