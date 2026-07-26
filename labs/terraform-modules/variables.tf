@@ -21,3 +21,28 @@ variable "instances" {
     instance_type = string
   }))
 }
+
+variable "key_name" {
+
+  description = "AWS Key Pair Name"
+
+  type = string
+
+}
+
+variable "public_key_path" {
+
+  description = "Path to SSH Public Key"
+
+  type = string
+
+}
+
+variable "role_name" {
+
+  description = "IAM Role Name"
+
+  type = string
+
+}
+

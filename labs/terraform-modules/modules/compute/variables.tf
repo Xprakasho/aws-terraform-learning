@@ -34,3 +34,19 @@ variable "security_group_id" {
   type = string
 
 }
+
+variable "key_name" {
+
+  description = "EC2 Key Pair Name"
+
+  type = string
+
+}
+
+variable "iam_instance_profile" {
+
+  description = "IAM Instance Profile"
+
+  type = string
+
+}
