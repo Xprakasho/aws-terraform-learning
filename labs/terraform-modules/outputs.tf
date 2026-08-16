@@ -35,3 +35,23 @@ output "private_ip" {
     k => v.private_ip
   }
 }
+
+output "public_subnet_ids" {
+  description = "IDs of public subnets"
+  value       = module.network.public_subnet_ids
+}
+
+output "private_subnet_ids" {
+  description = "IDs of private subnets"
+  value       = module.network.private_subnet_ids
+}
+
+output "nat_gateway_id" {
+  description = "NAT Gateway ID"
+  value       = module.network.nat_gateway_id
+}
+
+output "private_route_table_ids" {
+  description = "IDs of private route tables"
+  value       = module.network.private_route_table_ids
+}

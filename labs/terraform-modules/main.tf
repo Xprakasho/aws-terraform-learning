@@ -3,9 +3,10 @@ module "network" {
 
   source = "./modules/network"
 
-  vpc_cidr          = var.vpc_cidr
-  subnet_cidr       = var.subnet_cidr
-  availability_zone = var.availability_zone
+  vpc_cidr             = var.vpc_cidr
+  public_subnet_cidrs  = var.public_subnet_cidrs
+  private_subnet_cidrs = var.private_subnet_cidrs
+  availability_zones   = var.availability_zones
 
   common_tags = local.common_tags
 
@@ -56,5 +57,28 @@ module "iam_role" {
   source = "./modules/iam-role"
 
   role_name = var.role_name
+
+}
+
+module "eks" {
+
+  source = "./modules/eks"
+
+  cluster_name    = "terraform-eks-lab"
+  cluster_version = "1.33"
+
+  vpc_id = module.network.vpc_id
+
+  subnet_ids = module.network.private_subnet_ids
+
+  node_instance_types = [
+    "t3.small"
+  ]
+
+  node_desired_size = 2
+  node_min_size     = 1
+  node_max_size     = 3
+
+  common_tags = local.common_tags
 
 }
