@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: agent01-service
+  namespace: agent01
+
+spec:
+  selector:
+    app: agent01
+
+  ports:
+    - port: 80
+      targetPort: 80
